@@ -54,7 +54,7 @@ If you aren't using webpack or something similar to bundle your application and 
 
 ```html
 <script src="path/to/svg.js"></script>
-<script src="path/to/visualcube/dist/main.js"></script>
+<script src="path/to/visualcube/dist/bundle/srVisualizer.min.js"></script>
 ```
 
 then you can access the library from `window['sr-visualizer']`. However, you loose some of the benefits from the typings `index.d.ts`. Enums like `Face`, `Axis`, and `Mask` will be unavailable.
