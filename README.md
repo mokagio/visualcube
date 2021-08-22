@@ -88,7 +88,7 @@ cubePNG(element, {
 ### Color Schemes 
 showcasing japanese color scheme
 ```javascript
-import {cube, Face} from 'sr-visualizer'
+import {cubePNG, Face} from 'sr-visualizer'
 
 cubePNG(element, {
   algorithm: 'M2 E2 S2',
@@ -107,7 +107,7 @@ cubePNG(element, {
 
 ### Transparency
 ```javascript
-import {cube, Face} from 'sr-visualizer'
+import {cubePNG, Face} from 'sr-visualizer'
 
 cubePNG(element, {
   cubeOpacity: 12,
@@ -120,7 +120,7 @@ cubePNG(element, {
 ### Masking
 only showing the last layer
 ```javascript
-import {cube, Masking} from 'sr-visualizer'
+import {cubePNG, Masking} from 'sr-visualizer'
 
 cubePNG(element, {
   mask: Masking.LL
@@ -131,7 +131,7 @@ cubePNG(element, {
 
 ### Rotation
 ```javascript
-import {cube, Axis} from 'sr-visualizer'
+import {cubePNG, Axis} from 'sr-visualizer'
 
 cubePNG(element, {
   viewportRotations: [
