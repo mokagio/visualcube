@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y;
 var constants_1 = require("./constants");
 var maskingFunctions = (_a = {},
     _a[constants_1.Masking.FL] = (_b = {},
@@ -192,6 +193,7 @@ var maskingFunctions = (_a = {},
         _y),
     _a);
 function makeMasking(masking, cubeSize) {
+    var _a;
     if (!maskingFunctions[masking]) {
         throw new Error("invalid masking " + masking);
     }
@@ -215,7 +217,5 @@ function makeMasking(masking, cubeSize) {
         _loop_1(i);
     }
     return faceValues;
-    var _a;
 }
 exports.makeMasking = makeMasking;
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y;

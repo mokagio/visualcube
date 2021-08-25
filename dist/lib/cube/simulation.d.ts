@@ -2,7 +2,7 @@ import { Turn } from './parsing/algorithm';
 export declare enum TurnType {
     Clockwise = 0,
     CounterClockwise = 1,
-    Double = 2,
+    Double = 2
 }
 export declare class CubeData {
     private cubeSize;
@@ -64,31 +64,31 @@ export declare class CubeData {
     constructor(cubeSize: number, initialValues?: {
         [face: number]: any[];
     });
-    private initValues();
+    private initValues;
     /**
      * Rotates values on an outer face of the rubiks cubes
      */
-    private rotateFace(face, turn);
+    private rotateFace;
     /**
      * Rotates layer values around a given axis
      */
-    private axisRotation(offset, range, axis, faceOrder, forward?, double?);
+    private axisRotation;
     /**
      * Rotate layers around the x axis of the cube
      */
-    private xLayersRotation(offset, forward?, double?, range?);
+    private xLayersRotation;
     /**
      * Rotate layers around the y axis of the cube
      */
-    private yLayersRotation(offset, forward?, double?, range?);
+    private yLayersRotation;
     /**
      * Rotate layers around the z axis of the cube
      */
-    private zLayersRotation(offset, forward?, double?, range?);
+    private zLayersRotation;
     /**
      * Restricts the number of slices used in outer block moves to the cube size
      */
-    private safeSlices(n);
+    private safeSlices;
     rTurn(turnType: TurnType, slices?: number): void;
     lTurn(turnType: TurnType, slices?: number): void;
     uTurn(turnType: TurnType, slices?: number): void;

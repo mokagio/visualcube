@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a, _b, _c, _d, _e, _f;
 var math_1 = require("./../math");
 var constants_1 = require("./constants");
 var TurnType;
@@ -323,4 +324,3 @@ var CubeData = /** @class */ (function () {
     return CubeData;
 }());
 exports.CubeData = CubeData;
-var _a, _b, _c, _d, _e, _f;

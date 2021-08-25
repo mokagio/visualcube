@@ -201,6 +201,7 @@ Here is a table of the supported options
 | case | `([2-9]+)?([UuFfRrDdLlBbMESxyz])(w)?([2\'])?` (ex "R U R' U") | | The system displays the cube state which is solved by applying the algorithm  |
 | backgroundColor | html color codes or names (ex. '#FFF' or 'white')  | | |
 | cubeColor | html color codes or names (ex. '#000' or 'black') | black | Color cube is drawn as |
+| maskColor | html color codes or names (ex. '#000' or 'black') | #404040 | Color masked stickers are drawn as |
 | cubeSize | 1 to 17 | 3 | Values from N=(1 to 17) represent an NxNxN cube. Currently only regular cubes are modelled |
 | cubeOpacity| 0 to 100 | 100 | Setting this value causes the base cube to be transparent. It means facelets at the back of the cube will also be rendered. A value of 0 gives complete transparency. |
 | stickerOpacity | 0 to 100 | 100 | Setting this value causes the facelets to be rendered with transparency |
@@ -221,3 +222,10 @@ Here is a table of the supported options
 * Configurable default arrow color
 * Transparent view
 * Cookie configurable variables
+
+## Publishing
+```bash
+> npm run build # compile and bundle assets to `/dist/bundle`
+> tsc # compile build assets to `/dist/lib`
+> npm publish
+```

@@ -16,6 +16,7 @@ export interface ICubeOptions {
     colorScheme?: {
         [face: number]: string;
     };
+    maskColor?: string;
     stickerColors?: string[];
     facelets?: string[] | FaceletDefinition[];
     viewportRotations?: [Axis, number][];

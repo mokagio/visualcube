@@ -9,7 +9,7 @@ export declare enum FaceletDefinition {
     Front = "f",
     Transparent = "t",
     Oriented = "o",
-    Blank = "n",
+    Blank = "n"
 }
 export declare const ColorNameToCode: {
     [name: string]: ColorCode;

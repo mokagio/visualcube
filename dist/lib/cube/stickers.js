@@ -8,6 +8,7 @@ var constants_1 = require("./constants");
 function makeStickerColors(options) {
     var stickerColors = options.stickerColors;
     var mask = options.mask ? masking_1.makeMasking(options.mask, options.cubeSize) : null;
+    var maskColor = typeof options.maskColor == 'string' ? options.maskColor : colors_1.ColorCode.DarkGray;
     if (mask && options.maskAlg) {
         var maskCubeData_1 = new simulation_1.CubeData(options.cubeSize, mask);
         var alg_1 = algorithm_1.parseAlgorithm(options.maskAlg);
@@ -37,7 +38,7 @@ function makeStickerColors(options) {
                     acc[face][options.cubeSize * i + j] = stickerColors[colorIndex];
                 }
                 if (mask && !mask[face][options.cubeSize * i + j]) {
-                    acc[face][options.cubeSize * i + j] = colors_1.ColorCode.DarkGray;
+                    acc[face][options.cubeSize * i + j] = maskColor;
                 }
             }
         }

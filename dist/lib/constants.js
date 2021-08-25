@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a, _b, _c, _d;
 var colors_1 = require("./colors");
 var constants_1 = require("./cube/constants");
 var FaceletDefinition;
@@ -67,4 +68,3 @@ exports.FaceletToColor = (_d = {},
     _d[FaceletDefinition.Blank] = colors_1.ColorCode.DarkGray,
     _d[FaceletDefinition.Transparent] = colors_1.ColorName.Transparent,
     _d);
-var _a, _b, _c, _d;

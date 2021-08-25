@@ -5,7 +5,7 @@ export declare type Vec3 = [number, number, number];
 export declare enum Axis {
     X = 0,
     Y = 1,
-    Z = 2,
+    Z = 2
 }
 export declare function makeMatrix<T>(rows: number, cols: number): T[][];
 export declare function translate(pos: Vec3, v: Vec3): Vec3;

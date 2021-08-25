@@ -11,7 +11,7 @@ export declare enum ColorCode {
     Green = "#00D800",
     Purple = "#A83DD9",
     Pink = "#F33D7B",
-    Transparent = "transparent",
+    Transparent = "transparent"
 }
 export declare enum ColorName {
     Black = "black",
@@ -26,7 +26,7 @@ export declare enum ColorName {
     Green = "green",
     Purple = "purple",
     Pink = "pink",
-    Transparent = "transparent",
+    Transparent = "transparent"
 }
 export declare enum ColorAbbreviation {
     Black = "n",
@@ -41,5 +41,5 @@ export declare enum ColorAbbreviation {
     Green = "g",
     Purple = "m",
     Pink = "p",
-    Transparent = "t",
+    Transparent = "t"
 }

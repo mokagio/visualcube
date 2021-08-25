@@ -1,4 +1,4 @@
-import { ColorCode } from './../../colors';
+import { ColorCode } from './../../colors'
 import { ColorAbbreviationToCode, ColorNameToCode } from '../../constants'
 
 export function parseColor(raw: string): string | ColorCode {

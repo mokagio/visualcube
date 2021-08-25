@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a;
 var colors_1 = require("./../colors");
 var constants_1 = require("./../constants");
 var SVG = require("svg.js");
@@ -295,4 +296,3 @@ function renderArrow(group, geometry, arrow) {
     });
 }
 exports.renderArrow = renderArrow;
-var _a;

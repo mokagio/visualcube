@@ -1,5 +1,5 @@
-import { ColorCode } from './../colors';
-import { Axis } from './../math';
+import { ColorCode } from './../colors'
+import { Axis } from './../math'
 import { ICubeColorScheme } from './models/color-scheme'
 
 export enum Face {
