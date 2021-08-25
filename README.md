@@ -222,3 +222,9 @@ Here is a table of the supported options
 * Configurable default arrow color
 * Transparent view
 * Cookie configurable variables
+
+## Publishing
+```bash
+> npm run build # compile and bundle assets to `/dist`
+> npm publish
+```
