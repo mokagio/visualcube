@@ -6,7 +6,7 @@ export declare enum Face {
     F = 2,
     D = 3,
     L = 4,
-    B = 5,
+    B = 5
 }
 export declare const AllFaces: Face[];
 export declare class FaceRotationVectors {
@@ -31,7 +31,7 @@ export declare enum AlgorithmUnit {
     S = "S",
     X = "x",
     Y = "y",
-    Z = "z",
+    Z = "z"
 }
 export declare const AxisSymbolToAxis: {
     x: Axis;
@@ -43,7 +43,7 @@ export declare const cubeRotations: string[];
 export declare enum TurnAbbreviation {
     Clockwise = "",
     CounterClockwise = "'",
-    Double = "2",
+    Double = "2"
 }
 export declare enum Masking {
     FL = "fl",
@@ -67,5 +67,5 @@ export declare enum Masking {
     F2LSM = "f2l_sm",
     F2L1 = "f2l_1",
     F2B = "f2b",
-    LINE = "line",
+    LINE = "line"
 }

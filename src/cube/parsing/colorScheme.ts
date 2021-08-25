@@ -1,4 +1,4 @@
-import { ColorCode } from './../../colors';
+import { ColorCode } from './../../colors'
 import { ICubeColorScheme } from '../models/color-scheme'
 import { parseColor } from './color'
 import { ColorNameToCode, ColorAbbreviationToCode } from '../../constants'

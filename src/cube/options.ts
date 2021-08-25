@@ -15,6 +15,7 @@ export interface ICubeOptions {
   cubeOpacity?: number
   stickerOpacity?: number
   colorScheme?: { [face: number]: string }
+  maskColor?: string
   stickerColors?: string[]
   facelets?: string[] | FaceletDefinition[]
   viewportRotations?: [Axis, number][]

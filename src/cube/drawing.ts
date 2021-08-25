@@ -1,4 +1,4 @@
-import { ColorCode, ColorName } from './../colors';
+import { ColorCode, ColorName } from './../colors'
 import { FaceletToFace, FaceletDefinition, FaceletToColor } from './../constants'
 import * as SVG from 'svg.js'
 import { CubeGeometry, FaceStickers, FaceRotations, rotateFaces } from './geometry'

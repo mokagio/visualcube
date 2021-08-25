@@ -1,4 +1,5 @@
-import { ColorName } from './colors';
+import { ICubeColorScheme } from './cube/models/color-scheme'
+import { ColorName } from './colors'
 import { makeCubeGeometry } from './cube/geometry'
 import { Axis } from './math'
 import { renderCube } from './cube/drawing'
@@ -8,11 +9,11 @@ import { makeStickerColors } from './cube/stickers'
 import { parseOptions } from './cube/parsing/options'
 import { parseFaceletDefinitions } from './cube/parsing/faceletDefinitions'
 
-export { Masking, Face } from './cube/constants';
-export { Axis } from './math';
-export { StickerDefinition } from './cube/models/sticker';
-export { Arrow } from './cube/models/arrow';
-export { ICubeOptions } from './cube/options';
+export { Masking, Face } from './cube/constants'
+export { Axis } from './math'
+export { StickerDefinition } from './cube/models/sticker'
+export { Arrow } from './cube/models/arrow'
+export { ICubeOptions } from './cube/options'
 
 const defaultOptions: ICubeOptions = {
   cubeSize: 3,
@@ -35,7 +36,9 @@ const defaultOptions: ICubeOptions = {
 }
 
 export function cubeSVG(container: HTMLElement | string, extraOptions?: ICubeOptions) {
-  if (extraOptions === void 0) { extraOptions = {}; }
+  if (extraOptions === void 0) {
+    extraOptions = {}
+  }
   let options = getOptions(defaultOptions, extraOptions)
   let geomety = makeCubeGeometry(options)
   options.stickerColors = makeStickerColors(options)
@@ -44,7 +47,9 @@ export function cubeSVG(container: HTMLElement | string, extraOptions?: ICubeOpt
 }
 
 export function cubePNG(container: HTMLElement, extraOptions?: ICubeOptions) {
-  if (extraOptions === void 0) { extraOptions = {}; }
+  if (extraOptions === void 0) {
+    extraOptions = {}
+  }
   let element = document.createElement('div')
   let options = getOptions(defaultOptions, extraOptions)
   cubeSVG(element, options)
