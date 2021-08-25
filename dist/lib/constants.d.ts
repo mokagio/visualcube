@@ -24,7 +24,7 @@ export declare const FaceletToFace: {
     [facelet: string]: Face;
 };
 export declare const FaceletToColor: {
-    o: ColorName;
-    n: ColorCode;
-    t: ColorName;
+    [FaceletDefinition.Oriented]: ColorName;
+    [FaceletDefinition.Blank]: ColorCode;
+    [FaceletDefinition.Transparent]: ColorName;
 };

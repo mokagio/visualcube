@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a, _b;
 var colors_1 = require("./../colors");
 var math_1 = require("./../math");
 var Face;
@@ -106,4 +107,3 @@ var Masking;
     Masking["F2B"] = "f2b";
     Masking["LINE"] = "line";
 })(Masking = exports.Masking || (exports.Masking = {}));
-var _a, _b;

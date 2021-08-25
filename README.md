@@ -225,6 +225,7 @@ Here is a table of the supported options
 
 ## Publishing
 ```bash
-> npm run build # compile and bundle assets to `/dist`
+> npm run build # compile and bundle assets to `/dist/bundle`
+> tsc # compile build assets to `/dist/lib`
 > npm publish
 ```

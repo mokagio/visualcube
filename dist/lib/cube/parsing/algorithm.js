@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a;
 var constants_1 = require("./../constants");
 var simulation_1 = require("../simulation");
 var constants_2 = require("../constants");
@@ -89,4 +90,3 @@ function getTurnType(rawType) {
             throw new Error("Invalid move modifier (" + rawType + ")");
     }
 }
-var _a;
