@@ -17,7 +17,7 @@ const defaultFaceRotations: FaceRotations = {
   [Face.U]: [0, -1, 0],
   [Face.R]: [1, 0, 0],
   [Face.F]: [0, 0, -1],
-  [Face.D]: [0, 1, 1],
+  [Face.D]: [0, 1, 0],
   [Face.L]: [-1, 0, 0],
   [Face.B]: [0, 0, 1],
 }
