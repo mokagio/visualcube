@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseRotationSequence = void 0;
 var constants_1 = require("../constants");
 function parseRotationSequence(rawSequence) {
     var rotationRegex = /([xyz]-?[0-9][0-9]?[0-9]?)/g;

@@ -1,10 +1,11 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseCase = exports.parseAlgorithm = void 0;
 var constants_1 = require("./../constants");
 var simulation_1 = require("../simulation");
 var constants_2 = require("../constants");
-var turnRegex = /([2-9]+)?([UuFfRrDdLlBbMESxyz])(w)?([2\'])?/g;
+var turnRegex = /([2-9]+)?([UuFfRrDdLlBbMESxyz])(w)?(2\'|\'2|2|\')?/g;
 var Opposite = (_a = {},
     _a[simulation_1.TurnType.Clockwise] = simulation_1.TurnType.CounterClockwise,
     _a[simulation_1.TurnType.CounterClockwise] = simulation_1.TurnType.Clockwise,
@@ -85,6 +86,8 @@ function getTurnType(rawType) {
         case constants_2.TurnAbbreviation.CounterClockwise:
             return simulation_1.TurnType.CounterClockwise;
         case constants_2.TurnAbbreviation.Double:
+        case constants_2.TurnAbbreviation.DoubleCounter1:
+        case constants_2.TurnAbbreviation.DoubleCounter2:
             return simulation_1.TurnType.Double;
         default:
             throw new Error("Invalid move modifier (" + rawType + ")");

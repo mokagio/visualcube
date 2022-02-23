@@ -1,6 +1,7 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var _a, _b;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Masking = exports.TurnAbbreviation = exports.cubeRotations = exports.possibleMoves = exports.AxisSymbolToAxis = exports.AlgorithmUnit = exports.JapaneseColorScheme = exports.DefaultColorScheme = exports.FaceRotationVectors = exports.AllFaces = exports.Face = void 0;
 var colors_1 = require("./../colors");
 var math_1 = require("./../math");
 var Face;
@@ -81,6 +82,8 @@ var TurnAbbreviation;
     TurnAbbreviation["Clockwise"] = "";
     TurnAbbreviation["CounterClockwise"] = "'";
     TurnAbbreviation["Double"] = "2";
+    TurnAbbreviation["DoubleCounter1"] = "2'";
+    TurnAbbreviation["DoubleCounter2"] = "'2";
 })(TurnAbbreviation = exports.TurnAbbreviation || (exports.TurnAbbreviation = {}));
 var Masking;
 (function (Masking) {

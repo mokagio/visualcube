@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseFaceletColors = void 0;
 var color_1 = require("./color");
 var constants_1 = require("../../constants");
 function parseFaceletColors(rawValue) {

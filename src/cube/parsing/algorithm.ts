@@ -8,7 +8,7 @@ export interface Turn {
   slices: number
 }
 
-const turnRegex = /([2-9]+)?([UuFfRrDdLlBbMESxyz])(w)?([2\'])?/g
+const turnRegex = /([2-9]+)?([UuFfRrDdLlBbMESxyz])(w)?(2\'|\'2|2|\')?/g
 
 const Opposite = {
   [TurnType.Clockwise]: TurnType.CounterClockwise,
@@ -92,6 +92,8 @@ function getTurnType(rawType: string): TurnType {
     case TurnAbbreviation.CounterClockwise:
       return TurnType.CounterClockwise
     case TurnAbbreviation.Double:
+    case TurnAbbreviation.DoubleCounter1:
+    case TurnAbbreviation.DoubleCounter2:
       return TurnType.Double
     default:
       throw new Error(`Invalid move modifier (${rawType})`)

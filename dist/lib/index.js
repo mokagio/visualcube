@@ -11,6 +11,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.cubePNG = exports.cubeSVG = exports.Arrow = exports.StickerDefinition = exports.Axis = exports.Face = exports.Masking = void 0;
 var colors_1 = require("./colors");
 var geometry_1 = require("./cube/geometry");
 var math_1 = require("./math");
@@ -20,14 +21,14 @@ var stickers_1 = require("./cube/stickers");
 var options_1 = require("./cube/parsing/options");
 var faceletDefinitions_1 = require("./cube/parsing/faceletDefinitions");
 var constants_2 = require("./cube/constants");
-exports.Masking = constants_2.Masking;
-exports.Face = constants_2.Face;
+Object.defineProperty(exports, "Masking", { enumerable: true, get: function () { return constants_2.Masking; } });
+Object.defineProperty(exports, "Face", { enumerable: true, get: function () { return constants_2.Face; } });
 var math_2 = require("./math");
-exports.Axis = math_2.Axis;
+Object.defineProperty(exports, "Axis", { enumerable: true, get: function () { return math_2.Axis; } });
 var sticker_1 = require("./cube/models/sticker");
-exports.StickerDefinition = sticker_1.StickerDefinition;
+Object.defineProperty(exports, "StickerDefinition", { enumerable: true, get: function () { return sticker_1.StickerDefinition; } });
 var arrow_1 = require("./cube/models/arrow");
-exports.Arrow = arrow_1.Arrow;
+Object.defineProperty(exports, "Arrow", { enumerable: true, get: function () { return arrow_1.Arrow; } });
 var defaultOptions = {
     cubeSize: 3,
     width: 128,
@@ -93,5 +94,5 @@ function getOptions(defaultOptions, extraOptions) {
     if (typeof parsedOptions.facelets === 'string') {
         parsedOptions.facelets = faceletDefinitions_1.parseFaceletDefinitions(parsedOptions.facelets);
     }
-    return __assign({}, defaultOptions, parsedOptions);
+    return __assign(__assign({}, defaultOptions), parsedOptions);
 }

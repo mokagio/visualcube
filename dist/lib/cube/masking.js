@@ -1,6 +1,7 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeMasking = void 0;
 var constants_1 = require("./constants");
 var maskingFunctions = (_a = {},
     _a[constants_1.Masking.FL] = (_b = {},

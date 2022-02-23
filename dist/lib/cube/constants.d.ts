@@ -43,7 +43,9 @@ export declare const cubeRotations: string[];
 export declare enum TurnAbbreviation {
     Clockwise = "",
     CounterClockwise = "'",
-    Double = "2"
+    Double = "2",
+    DoubleCounter1 = "2'",
+    DoubleCounter2 = "'2"
 }
 export declare enum Masking {
     FL = "fl",

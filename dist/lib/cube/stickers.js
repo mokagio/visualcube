@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeStickerColors = void 0;
 var colors_1 = require("./../colors");
 var masking_1 = require("./masking");
 var simulation_1 = require("./simulation");

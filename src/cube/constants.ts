@@ -82,6 +82,8 @@ export enum TurnAbbreviation {
   Clockwise = '',
   CounterClockwise = "'",
   Double = '2',
+  DoubleCounter1 = "2'",
+  DoubleCounter2 = "'2",
 }
 
 export enum Masking {

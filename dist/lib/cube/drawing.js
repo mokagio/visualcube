@@ -1,6 +1,12 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.renderArrow = exports.renderOLLStickers = exports.renderCube = void 0;
 var colors_1 = require("./../colors");
 var constants_1 = require("./../constants");
 var SVG = require("svg.js");
@@ -16,7 +22,7 @@ var defaultFaceRotations = (_a = {},
     _a[constants_2.Face.U] = [0, -1, 0],
     _a[constants_2.Face.R] = [1, 0, 0],
     _a[constants_2.Face.F] = [0, 0, -1],
-    _a[constants_2.Face.D] = [0, 1, 1],
+    _a[constants_2.Face.D] = [0, 1, 0],
     _a[constants_2.Face.L] = [-1, 0, 0],
     _a[constants_2.Face.B] = [0, 0, 1],
     _a);
@@ -65,7 +71,7 @@ exports.renderCube = renderCube;
  * will render first so anything closer will be drawn on top.
  */
 function getRenderOrder(faceRotations) {
-    var renderOrder = constants_2.AllFaces.slice().sort(function (a, b) {
+    var renderOrder = __spreadArray([], constants_2.AllFaces).sort(function (a, b) {
         return faceRotations[b][2] - faceRotations[a][2];
     });
     return renderOrder;
