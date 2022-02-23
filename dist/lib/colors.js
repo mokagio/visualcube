@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ColorAbbreviation = exports.ColorName = exports.ColorCode = void 0;
 var ColorCode;
 (function (ColorCode) {
     ColorCode["Black"] = "#000000";

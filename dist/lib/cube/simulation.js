@@ -1,6 +1,7 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var _a, _b, _c, _d, _e, _f;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CubeData = exports.TurnType = void 0;
 var math_1 = require("./../math");
 var constants_1 = require("./constants");
 var TurnType;

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseOptions = void 0;
 var rotation_1 = require("./rotation");
 var faceletColors_1 = require("./faceletColors");
 var colorScheme_1 = require("./colorScheme");

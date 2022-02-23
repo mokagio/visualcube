@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseArrow = exports.parseArrows = void 0;
 var colors_1 = require("./../../colors");
 var constants_1 = require("../constants");
 var color_1 = require("./color");

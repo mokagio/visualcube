@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Arrow = void 0;
 var Arrow = /** @class */ (function () {
     function Arrow(s1, s2, color, s3, scale, influence) {
         this.scale = 10; // Var range = 0 to 20, default 10

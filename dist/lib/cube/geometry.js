@@ -1,5 +1,11 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeCubeGeometry = exports.makeFaceStickers = exports.makeStickerPosition = exports.rotateFaces = void 0;
 /**
  * Utlity Methods for creating 2D coodinates for svg polygons
  */
@@ -12,7 +18,7 @@ function rotateFaces(faceRotations, rotations) {
     return constants_1.AllFaces.reduce(function (acc, face) {
         rotations.forEach(function (rotation) {
             if (!acc[face]) {
-                acc[face] = faceRotations[face].slice();
+                acc[face] = __spreadArray([], faceRotations[face]);
             }
             acc[face] = math_1.rotate(acc[face], rotation[0], (Math.PI * rotation[1]) / 180);
         });

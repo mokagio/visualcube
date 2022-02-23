@@ -2,7 +2,13 @@
 /**
  * Methods for manipulating points in 3d space (Vec3)
  */
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.radians2Degrees = exports.project = exports.rotate = exports.transScale = exports.scale = exports.translate = exports.makeMatrix = exports.Axis = void 0;
 var Axis;
 (function (Axis) {
     Axis[Axis["X"] = 0] = "X";
@@ -36,7 +42,7 @@ function transScale(pos, v, scalar) {
 }
 exports.transScale = transScale;
 function rotate(pos, axis, radians) {
-    var newPosition = pos.slice();
+    var newPosition = __spreadArray([], pos);
     switch (axis) {
         case Axis.X:
             newPosition[2] = pos[2] * Math.cos(radians) - pos[1] * Math.sin(radians);
@@ -58,7 +64,7 @@ function project(pos, d) {
     return [
         (pos[0] * d) / pos[2],
         (pos[1] * d) / pos[2],
-        pos[2],
+        pos[2], // Maintain z coordinate to allow use of rendering tricks
     ];
 }
 exports.project = project;
