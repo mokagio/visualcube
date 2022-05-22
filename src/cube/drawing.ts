@@ -129,14 +129,14 @@ function getArrowGroup(svg: SVG.Doc, cubeSize: number): SVG.G {
   return arrowGroup
 }
 
-function renderCubeOutline(svg: SVG.G, face: FaceStickers, options: ICubeOptions): SVG.Polygon {
+function renderCubeOutline(svg: SVG.G, face: FaceStickers, options: ICubeOptions, xOffset = 0, yOffset = 0): SVG.Polygon {
   const cubeSize = face.length - 1
   const width = options.outlineWidth
   let outlinePoints = [
-    [face[0][0][0] * width, face[0][0][1] * width],
-    [face[cubeSize][0][0] * width, face[cubeSize][0][1] * width],
-    [face[cubeSize][cubeSize][0] * width, face[cubeSize][cubeSize][1] * width],
-    [face[0][cubeSize][0] * width, face[0][cubeSize][1] * width],
+    [face[0][0][0] * width + xOffset, face[0][0][1] * width + yOffset],
+    [face[cubeSize][0][0] * width + xOffset, face[cubeSize][0][1] * width + yOffset],
+    [face[cubeSize][cubeSize][0] * width + xOffset, face[cubeSize][cubeSize][1] * width + yOffset],
+    [face[0][cubeSize][0] * width + xOffset, face[0][cubeSize][1] * width + yOffset],
   ]
   let polygon = svg.polygon(outlinePoints)
   polygon.fill(options.cubeColor)
