@@ -26,6 +26,14 @@ export function renderCube(container: HTMLElement | string, geometry: CubeGeomet
   let faceRotations = rotateFaces(defaultFaceRotations, options.viewportRotations)
   let renderOrder = getRenderOrder(faceRotations)
   let svg = SVG(container as HTMLElement).size(options.width, options.height)
+
+  // Scale the viewbox to show hidden faces projections
+  // TODO: Put this behind an option so that it happens only when we want to show the hidden faces
+  options.viewbox.x = options.viewbox.x * 2
+  options.viewbox.y = options.viewbox.y * 1.75
+  options.viewbox.width = options.viewbox.width * 2
+  options.viewbox.height = options.viewbox.height * 2
+
   svg.viewbox(options.viewbox.x, options.viewbox.y, options.viewbox.width, options.viewbox.height)
 
   let hiddenFaces = renderOrder.filter(face => !faceVisible(face, faceRotations))
