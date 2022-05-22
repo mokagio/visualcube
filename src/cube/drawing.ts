@@ -32,6 +32,17 @@ export function renderCube(container: HTMLElement | string, geometry: CubeGeomet
   let visibleFaces = renderOrder.filter(face => faceVisible(face, faceRotations))
 
   renderBackground(svg, options)
+
+  // Render hidden faces via an offset projection
+  //
+  // Piggybacking on the OLL SVG settins for the hidden layers...
+  // TODO: Use proper name and settings for it.
+  let ollGroup = getOllLayerGroup(svg, options)
+  // Notices that I'm not allowing rotations here
+  ;[Face.L, Face.B, Face.D].forEach(face => {
+    renderHiddenStickers(ollGroup, face, geometry[face], faceRotations, options)
+  })
+
   // Render hidden faces if cube color has transparency
   if (options.cubeOpacity < 100) {
     let cubeOutlineGroup = getCubeOutlineGroup(svg, options)
@@ -268,6 +279,40 @@ export function renderOLLStickers(
 
     if (stickerColor !== ColorName.Transparent) {
       renderSticker(group, p1, p2, p3, p4, stickerColor, options.cubeColor)
+    }
+  }
+}
+
+// Renders the top rim of the R U L and B faces out from side of cube
+export function renderHiddenStickers(
+  group: SVG.G,
+  face: Face,
+  stickers: FaceStickers,
+  rotations: FaceRotations,
+  options: ICubeOptions
+) {
+  // Translation vector, to move faces out
+  const offsetFactor = 1.2
+  let v1 = scale(rotations[face], offsetFactor)
+  let v2 = scale(rotations[face], offsetFactor)
+  for (let i = 0; i < options.cubeSize; i++) {
+    for (let j = 0; j < options.cubeSize; j++) {
+      // find center point of sticker
+      const centerPoint: Vec3 = [
+        (stickers[j][i][0] + stickers[j + 1][i + 1][0]) / 2,
+        (stickers[j][i][1] + stickers[j + 1][i + 1][1]) / 2,
+        0,
+      ]
+      const scale = 0.94
+      let p1 = translate(transScale(stickers[j][i], centerPoint, scale), v1)
+      let p2 = translate(transScale(stickers[j + 1][i], centerPoint, scale), v1)
+      let p3 = translate(transScale(stickers[j + 1][i + 1], centerPoint, scale), v2)
+      let p4 = translate(transScale(stickers[j][i + 1], centerPoint, scale), v2)
+
+      let stickerColor = getStickerColor(face, i, j, options)
+      if (stickerColor !== ColorName.Transparent) {
+        renderSticker(group, p1, p2, p3, p4, stickerColor, options.cubeColor)
+      }
     }
   }
 }
