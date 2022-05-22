@@ -163,10 +163,11 @@ function renderFaceStickers(svg: SVG.Doc, face: Face, stickers: FaceStickers, op
       ]
 
       // Scale points in towards centre
-      let p1 = transScale(stickers[j][i], centerPoint, 0.85)
-      let p2 = transScale(stickers[j + 1][i], centerPoint, 0.85)
-      let p3 = transScale(stickers[j + 1][i + 1], centerPoint, 0.85)
-      let p4 = transScale(stickers[j][i + 1], centerPoint, 0.85)
+      const scaleFactor = 0.85;
+      let p1 = transScale(stickers[j][i], centerPoint, scaleFactor)
+      let p2 = transScale(stickers[j + 1][i], centerPoint, scaleFactor)
+      let p3 = transScale(stickers[j + 1][i + 1], centerPoint, scaleFactor)
+      let p4 = transScale(stickers[j][i + 1], centerPoint, scaleFactor)
 
       let color = getStickerColor(face, i, j, options)
       if (color !== ColorName.Transparent) {
