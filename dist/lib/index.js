@@ -94,5 +94,34 @@ function getOptions(defaultOptions, extraOptions) {
     if (typeof parsedOptions.facelets === 'string') {
         parsedOptions.facelets = faceletDefinitions_1.parseFaceletDefinitions(parsedOptions.facelets);
     }
-    return __assign(__assign({}, defaultOptions), parsedOptions);
+    // Spread (`...`) is not sufficient to copy because the options have nested values
+    return deepCopy(__assign(__assign({}, defaultOptions), parsedOptions));
+}
+// Hat-tip https://www.delftstack.com/howto/typescript/typescript-cloning-an-object/
+function deepCopy(instance) {
+    if (instance == null) {
+        return instance;
+    }
+    // handle Dates
+    if (instance instanceof Date) {
+        return new Date(instance.getTime());
+    }
+    // handle Array types
+    if (instance instanceof Array) {
+        var cloneArr = [];
+        instance.forEach(function (value) { cloneArr.push(value); });
+        // for nested objects
+        return cloneArr.map(function (value) { return deepCopy(value); });
+    }
+    // handle objects
+    if (instance instanceof Object) {
+        var copyInstance = __assign({}, instance);
+        for (var attr in instance) {
+            if (instance.hasOwnProperty(attr))
+                copyInstance[attr] = deepCopy(instance[attr]);
+        }
+        return copyInstance;
+    }
+    // handling primitive data types
+    return instance;
 }

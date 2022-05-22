@@ -118,7 +118,7 @@ function getCubeOutlineGroup(svg, options) {
 }
 function getOllLayerGroup(svg, options) {
     var group = svg.group();
-    group.opacity(options.stickerOpacity / 100);
+    group.opacity(options.stickerOpacity / 100 * 0.8);
     group.attr({
         'stroke-opacity': '1',
         'stroke-width': 0.02,
@@ -258,7 +258,7 @@ exports.renderOLLStickers = renderOLLStickers;
 // Renders the top rim of the R U L and B faces out from side of cube
 function renderHiddenStickers(group, face, stickers, rotations, options) {
     // Translation vector, to move faces out
-    var offsetFactor = 1.2;
+    var offsetFactor = 1.1;
     var v1 = math_1.scale(rotations[face], offsetFactor);
     var v2 = math_1.scale(rotations[face], offsetFactor);
     for (var i = 0; i < options.cubeSize; i++) {
