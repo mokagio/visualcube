@@ -6,7 +6,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from) {
 };
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderArrow = exports.renderOLLStickers = exports.renderCube = void 0;
+exports.renderArrow = exports.renderHiddenStickers = exports.renderOLLStickers = exports.renderCube = void 0;
 var colors_1 = require("./../colors");
 var constants_1 = require("./../constants");
 var SVG = require("svg.js");
@@ -30,10 +30,24 @@ function renderCube(container, geometry, options) {
     var faceRotations = geometry_1.rotateFaces(defaultFaceRotations, options.viewportRotations);
     var renderOrder = getRenderOrder(faceRotations);
     var svg = SVG(container).size(options.width, options.height);
+    // Scale the viewbox to show hidden faces projections
+    // TODO: Put this behind an option so that it happens only when we want to show the hidden faces
+    options.viewbox.x = options.viewbox.x * 2;
+    options.viewbox.y = options.viewbox.y * 1.75;
+    options.viewbox.width = options.viewbox.width * 2;
+    options.viewbox.height = options.viewbox.height * 2;
     svg.viewbox(options.viewbox.x, options.viewbox.y, options.viewbox.width, options.viewbox.height);
     var hiddenFaces = renderOrder.filter(function (face) { return !faceVisible(face, faceRotations); });
     var visibleFaces = renderOrder.filter(function (face) { return faceVisible(face, faceRotations); });
     renderBackground(svg, options);
+    // Render hidden faces via an offset projection
+    //
+    // Piggybacking on the OLL SVG settins for the hidden layers...
+    // TODO: Use proper name and settings for it.
+    var ollGroup = getOllLayerGroup(svg, options);
+    [constants_2.Face.L, constants_2.Face.B, constants_2.Face.D].forEach(function (face) {
+        renderHiddenStickers(ollGroup, face, geometry[face], faceRotations, options);
+    });
     // Render hidden faces if cube color has transparency
     if (options.cubeOpacity < 100) {
         var cubeOutlineGroup_1 = getCubeOutlineGroup(svg, options);
@@ -122,14 +136,16 @@ function getArrowGroup(svg, cubeSize) {
     });
     return arrowGroup;
 }
-function renderCubeOutline(svg, face, options) {
+function renderCubeOutline(svg, face, options, xOffset, yOffset) {
+    if (xOffset === void 0) { xOffset = 0; }
+    if (yOffset === void 0) { yOffset = 0; }
     var cubeSize = face.length - 1;
     var width = options.outlineWidth;
     var outlinePoints = [
-        [face[0][0][0] * width, face[0][0][1] * width],
-        [face[cubeSize][0][0] * width, face[cubeSize][0][1] * width],
-        [face[cubeSize][cubeSize][0] * width, face[cubeSize][cubeSize][1] * width],
-        [face[0][cubeSize][0] * width, face[0][cubeSize][1] * width],
+        [face[0][0][0] * width + xOffset, face[0][0][1] * width + yOffset],
+        [face[cubeSize][0][0] * width + xOffset, face[cubeSize][0][1] * width + yOffset],
+        [face[cubeSize][cubeSize][0] * width + xOffset, face[cubeSize][cubeSize][1] * width + yOffset],
+        [face[0][cubeSize][0] * width + xOffset, face[0][cubeSize][1] * width + yOffset],
     ];
     var polygon = svg.polygon(outlinePoints);
     polygon.fill(options.cubeColor);
@@ -153,10 +169,11 @@ function renderFaceStickers(svg, face, stickers, options) {
                 0,
             ];
             // Scale points in towards centre
-            var p1 = math_1.transScale(stickers[j][i], centerPoint, 0.85);
-            var p2 = math_1.transScale(stickers[j + 1][i], centerPoint, 0.85);
-            var p3 = math_1.transScale(stickers[j + 1][i + 1], centerPoint, 0.85);
-            var p4 = math_1.transScale(stickers[j][i + 1], centerPoint, 0.85);
+            var scaleFactor = 0.85;
+            var p1 = math_1.transScale(stickers[j][i], centerPoint, scaleFactor);
+            var p2 = math_1.transScale(stickers[j + 1][i], centerPoint, scaleFactor);
+            var p3 = math_1.transScale(stickers[j + 1][i + 1], centerPoint, scaleFactor);
+            var p4 = math_1.transScale(stickers[j][i + 1], centerPoint, scaleFactor);
             var color = getStickerColor(face, i, j, options);
             if (color !== colors_1.ColorName.Transparent) {
                 renderSticker(group, p1, p2, p3, p4, color, options.cubeColor);
@@ -238,6 +255,33 @@ function renderOLLStickers(group, face, stickers, rotations, options) {
     }
 }
 exports.renderOLLStickers = renderOLLStickers;
+// Renders the top rim of the R U L and B faces out from side of cube
+function renderHiddenStickers(group, face, stickers, rotations, options) {
+    // Translation vector, to move faces out
+    var offsetFactor = 1.2;
+    var v1 = math_1.scale(rotations[face], offsetFactor);
+    var v2 = math_1.scale(rotations[face], offsetFactor);
+    for (var i = 0; i < options.cubeSize; i++) {
+        for (var j = 0; j < options.cubeSize; j++) {
+            // find center point of sticker
+            var centerPoint = [
+                (stickers[j][i][0] + stickers[j + 1][i + 1][0]) / 2,
+                (stickers[j][i][1] + stickers[j + 1][i + 1][1]) / 2,
+                0,
+            ];
+            var scale_1 = 0.94;
+            var p1 = math_1.translate(math_1.transScale(stickers[j][i], centerPoint, scale_1), v1);
+            var p2 = math_1.translate(math_1.transScale(stickers[j + 1][i], centerPoint, scale_1), v1);
+            var p3 = math_1.translate(math_1.transScale(stickers[j + 1][i + 1], centerPoint, scale_1), v2);
+            var p4 = math_1.translate(math_1.transScale(stickers[j][i + 1], centerPoint, scale_1), v2);
+            var stickerColor = getStickerColor(face, i, j, options);
+            if (stickerColor !== colors_1.ColorName.Transparent) {
+                renderSticker(group, p1, p2, p3, p4, stickerColor, options.cubeColor);
+            }
+        }
+    }
+}
+exports.renderHiddenStickers = renderHiddenStickers;
 /**
  * Generates svg for an arrow pointing from sticker s1 to s2
  */
