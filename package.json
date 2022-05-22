@@ -5,9 +5,10 @@
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "scripts": {
-    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production --config webpack.config.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production --config webpack.config.js && tsc",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider webpack --progress --watch --mode development --config webpack.config.js",
-    "pretty": "prettier --write \"src/**/*.ts\""
+    "pretty": "prettier --write \"src/**/*.ts\"",
+    "tsc": "./node_modules/typescript/bin/tsc "
   },
   "author": "",
   "license": "ISC",
