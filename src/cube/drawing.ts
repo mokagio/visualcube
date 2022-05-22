@@ -128,7 +128,7 @@ function getCubeOutlineGroup(svg: SVG.Doc, options: ICubeOptions): SVG.G {
 
 function getOllLayerGroup(svg: SVG.Doc, options: ICubeOptions): SVG.G {
   let group = svg.group()
-  group.opacity(options.stickerOpacity / 100)
+  group.opacity(options.stickerOpacity / 100 * 0.8)
   group.attr({
     'stroke-opacity': '1',
     'stroke-width': 0.02,
@@ -300,7 +300,7 @@ export function renderHiddenStickers(
   options: ICubeOptions
 ) {
   // Translation vector, to move faces out
-  const offsetFactor = 1.2
+  const offsetFactor = 1.1
   let v1 = scale(rotations[face], offsetFactor)
   let v2 = scale(rotations[face], offsetFactor)
   for (let i = 0; i < options.cubeSize; i++) {
