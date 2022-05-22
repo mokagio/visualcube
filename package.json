@@ -5,8 +5,8 @@
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "scripts": {
-    "build": "webpack --mode production --config webpack.config.js",
-    "dev": "webpack --progress --watch --mode development --config webpack.config.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production --config webpack.config.js",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider webpack --progress --watch --mode development --config webpack.config.js",
     "pretty": "prettier --write \"src/**/*.ts\""
   },
   "author": "",
